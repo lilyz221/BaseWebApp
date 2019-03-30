@@ -1,3 +1,4 @@
+    
 var express = require('express');
 var app = express();
 
@@ -9,8 +10,21 @@ app.use(express.static(__dirname));
 app.set('views', __dirname + '/html');
 app.set('view engine', 'ejs');
 
+// Set up the app's routing
 app.get('/', function(request, response) {
   response.render('pages/index');
+});
+
+app.get('/about', function(request, response) {
+  response.render('pages/about');
+});
+
+app.get('/projects', function(request, response) {
+  response.render('pages/projects');
+});
+
+app.get('/contact', function(request, response) {
+  response.render('pages/contact');
 });
 
 app.listen(app.get('port'), function() {
